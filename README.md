@@ -9,7 +9,6 @@ A lightweight, self-hosted browser log explorer. LogLens scans files on demand a
 - Case-insensitive keyword search and regular-expression search
 - Severity filtering (TRACE, DEBUG, INFO, WARN, ERROR, FATAL)
 - Time range filtering for common timestamp formats
-- Bounded result rendering (up to 5,000 entries per query)
 - Local-first server defaults to `127.0.0.1`
 
 ## Requirements
@@ -19,7 +18,7 @@ A lightweight, self-hosted browser log explorer. LogLens scans files on demand a
 ## Run
 
 ```bash
-git clone https://github.com/YOUR-ORG/loglens.git
+git clone https://github.com/sreehariskumar/loglens.git
 cd loglens
 go run . --root ./sample-logs
 ```
