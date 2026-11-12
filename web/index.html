@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LogLens — Log Explorer</title><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="mark">L</div><div><strong>LogLens</strong><small>LOG EXPLORER</small></div></div>
+    <div class="side-label">WORKSPACE</div>
+    <label class="field-label" for="file">Log file</label>
+    <select id="file"><option value="">Loading files…</option></select>
+    <div class="side-label filters-title">FILTERS</div>
+    <label class="field-label" for="level">Severity</label>
+    <select id="level"><option>ALL</option><option>TRACE</option><option>DEBUG</option><option>INFO</option><option>WARN</option><option>ERROR</option><option>FATAL</option></select>
+    <label class="field-label" for="from">From</label><input id="from" type="datetime-local">
+    <label class="field-label" for="to">To</label><input id="to" type="datetime-local">
+    <div class="hint">Timestamps are detected from common ISO and YYYY/MM/DD formats. Time filters use the server's local timezone when no zone is present.</div>
+    <button id="clear" class="secondary full">Clear filters</button>
+    <div class="sidebar-foot"><span class="dot"></span> Local workspace <span class="version">v0.1.0</span></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><div class="eyebrow">OBSERVABILITY / FILE EXPLORER</div><h1>Log explorer</h1></div><div class="top-actions"><span id="status" class="status">Ready</span><button id="refresh" class="secondary">↻ Refresh</button></div></header>
+    <section class="toolbar">
+      <div class="search-wrap"><span class="search-icon">⌕</span><input id="query" placeholder="Search logs… (keywords or regex)" autocomplete="off"><kbd>ENTER</kbd></div>
+      <label class="check"><input type="checkbox" id="regex"> Regex</label>
+      <button id="search" class="primary">Search logs</button>
+    </section>
+    <section class="stats">
+      <div class="stat"><span>LINES SCANNED</span><strong id="total">—</strong></div>
+      <div class="stat"><span>MATCHES</span><strong id="matches">—</strong></div>
+      <div class="stat"><span>DISPLAYED</span><strong id="displayed">—</strong></div>
+      <div class="stat"><span>FILE</span><strong id="filename" class="file-stat">No file selected</strong></div>
+    </section>
+    <section class="results-head"><div><h2>Log entries</h2><p id="result-note">Choose a log file to begin exploring.</p></div><div class="legend"><span><i class="level-dot error"></i> Error</span><span><i class="level-dot warn"></i> Warning</span><span><i class="level-dot info"></i> Info</span></div></section>
+    <section class="table-wrap">
+      <div class="table-head"><span>LINE</span><span>TIMESTAMP</span><span>LEVEL</span><span>MESSAGE</span></div>
+      <div id="rows" class="rows"><div class="empty"><div class="empty-icon">⌕</div><strong>Ready to explore</strong><p>Select a file and run a search to inspect its contents.</p></div></div>
+    </section>
+    <footer><span>LogLens scans files on demand; it does not store or index your logs.</span><span>Maximum displayed results: 500</span></footer>
+  </main>
+</div>
+<script src="/app.js"></script>
+</body></html>
